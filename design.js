@@ -1,33 +1,34 @@
 var gridHeight = $('#gridHeight');
 var gridWidth = $('#gridWidth');
-var gridHeightValue = gridHeight.attr('value'); //return grid height in string
-var gridWidthValue = gridWidth.attr('value'); //return grid width in string
 var button = $('#btnSubmit');
 var colorPicker = $('#pickColor');
-var grid = $('#grid');
+var tbl = $('#table');
 
-// TODO: fix this function to append td as a child of tr
-function makeGrid(height, width) {
-	$('#table').append('<table class="grid" id="grid" border="1"></table>');
-	var tbl = $('#grid');
-	for(let row = 0; row <= height; row++) {
-		var	tr = tbl.append('<tr class="row"></tr>');
-		for(let column = 0; column <= width; column++) {
-			if(row === height && column === width) {
-				break;
-			} else {
-				var td = tbl.append('<td class="column"></td>');
-				td.appendTo(tr);
-			}
-			grid.append('<div class="cell"></div>');
+//Draw a grid based on parameters: height and width.
+//height: the number of cells vertically
+//width: the number of cells horizontally
+function drawGrid(height, width) {
+	tbl.append('<table class="grid" id="grid" border="1"></table>');
+	let grid = $('#grid');
+	for(let row = 0; row < height; row++) {
+		grid.append('<tr class="row"></tr>');
+		let tr = $('tr');
+		for(let column = 0; column < width; column++) {
+			$('<td class="column"></td>').appendTo(tr[row]);
 		}
 	}
 }
 
+function makeGrid(height, width) {
+	tbl.empty(); //delete old grid
+	drawGrid(height, width); //draw new grid
+}
+
 //get height and width values from inputs after click button
 button.click(function(){
-	gridHeightValue = $('#gridHeight').val();
-	gridWidthValue = $('#gridWidth').val();
+	let gridHeightValue = gridHeight.val();
+	let gridWidthValue = gridWidth.val();
 	makeGrid(gridHeightValue, gridWidthValue);
-	console.log('height: ' + gridHeightValue + '\nwidth: ' + gridWidthValue); //delete after test
 });
+
+//TODO: create function colorCell whitch changing cell's background color 
