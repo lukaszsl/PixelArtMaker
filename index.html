@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
 	<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -12,24 +13,28 @@
   <title>Pixel Art Maker</title>
 </head>
 <body>
-	<h1 class="logo">Pixel Art Maker</h1>
-	<!-- form to choose the grid size -->
-	<div class="gridSizeForm">
-		<label for="gridHeight">Grid Height</label>
-		<input id="gridHeight" type="number" value="5" min="1">
-		<label for="gridWidth">Grid Height</label>
-		<input id="gridWidth" type="number" value="5" min="1">
-		<button id="btnSubmit">Submit</button>
+	<div class="container">
+		<h1 class="mainLogo">Pixel Art Maker</h1>
+		<!-- form to choose the grid size -->
+		<div class="gridSizeForm">
+			<label for="gridHeight" class="gridLabel">Grid Height</label>
+			<input id="gridHeight" type="number" value="5" min="1">
+			<label for="gridWidth" class="gridLabel">Grid Height</label>
+			<input id="gridWidth" type="number" value="5" min="1">
+			<button id="btnSubmit" class="btnSubmit">Submit</button>
+		</div>
+		<!-- color picker -->
+		<div class="colorForm">
+			<label for="pickColor" class="colorLabel">Pick a color</label>
+			<input id="pickColor" type="color" value="#00ff00">
+		</div>
+		<!-- grid -->
+		<h2 class="gridLogo">Design Canvas</h2>
+		<div id="table" class="table"></div>
 	</div>
-	<!-- color picker -->
-	<label for="pickColor">Pick a color</label>
-	<input id="pickColor" type="color" value="#00ff00">
-	<!-- grid -->
-	<h2>Design Canvas</h2>
-	<div id="table"></div>
-	<!-- footer -->
-	<footer>
-		<p>Created by Lukasz Sliczner © 2017</p>
+		<!-- footer -->
+	<footer class="footer">
+		<p class="author">Created by Lukasz Sliczner © 2017</p>
 	</footer>
 <script src="design.js"></script>
 </body>

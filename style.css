@@ -2,10 +2,63 @@
 	box-sizing: border-box;
 }
 
+.container {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
+.mainLogo {
+	font-family: 'Kaushan Script', cursive;
+	font-size: 3em;
+	text-align: center;
+}
+
+.gridSizeForm {
+	display: flex;
+	justify-content: center;
+}
+
+.gridLabel {
+	padding: 0 10px 0 20px;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.gridInput {
+	font-size: 0.8em;
+}
+
+.btnSubmit {
+	font-weight: bold;
+	margin: 0 10px;
+}
+
+.colorForm {
+	display: flex;
+	justify-content: center;
+	margin: 30px;
+}
+
+.colorLabel {
+	padding: 0 10px;
+  font-size: 1.3em;
+}
+
+.gridLogo {
+	text-align: center;
+	font-size: 2em;
+}
+
+.table {
+	display: flex;
+	justify-content: center;
+}
+
 .grid {
 	border: 1px solid black;
 	border-spacing: 0;
 	border-collapse: collapse;
+	margin: 20px 10px 70px 10px;
 }
 
 .row {
@@ -14,4 +67,16 @@
 
 .column {
 	width: 20px;
+}
+
+.footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background-color: white;
+}
+
+.author {
+	text-align: center;
+	padding: 10px;
 }
