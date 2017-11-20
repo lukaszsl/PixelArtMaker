@@ -19,9 +19,17 @@ function drawGrid(height, width) {
 	}
 }
 
+function colorCell() {
+	$('td').on('click', function(evt) {
+		let color = colorPicker.val();
+		$(this).css('background', color);
+	});
+}
+
 function makeGrid(height, width) {
 	tbl.empty(); //delete old grid
 	drawGrid(height, width); //draw new grid
+	colorCell(); //color cell after click
 }
 
 //get height and width values from inputs after click button
@@ -30,5 +38,3 @@ button.click(function(){
 	let gridWidthValue = gridWidth.val();
 	makeGrid(gridHeightValue, gridWidthValue);
 });
-
-//TODO: create function colorCell whitch changing cell's background color 
