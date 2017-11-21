@@ -3,6 +3,8 @@ var gridWidth = $('#gridWidth');
 var button = $('#btnSubmit');
 var colorPicker = $('#pickColor');
 var tbl = $('#table');
+const MAX_WIDTH = 100;
+const MAX_HEIGHT = 100;
 
 //Draw a grid based on parameters: height and width.
 //height: the number of cells vertically
@@ -36,5 +38,10 @@ function makeGrid(height, width) {
 button.click(function(){
 	let gridHeightValue = gridHeight.val();
 	let gridWidthValue = gridWidth.val();
-	makeGrid(gridHeightValue, gridWidthValue);
+	//set condition which check if size of the grid isn't too big
+	if(gridHeightValue > MAX_HEIGHT || gridWidthValue > MAX_WIDTH) {
+		window.alert("You have exceeded the maximum grid size!\nThe height MAX is: " + MAX_HEIGHT + "\nThe width MAX is: " + MAX_WIDTH);
+	} else {
+		makeGrid(gridHeightValue, gridWidthValue);
+	}
 });
