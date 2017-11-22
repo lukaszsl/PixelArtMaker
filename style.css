@@ -44,6 +44,11 @@
   font-size: 1.3em;
 }
 
+.colorInput {
+  width: 40px;
+  height: 20px;
+}
+
 .gridLogo {
 	text-align: center;
 	font-size: 2em;
