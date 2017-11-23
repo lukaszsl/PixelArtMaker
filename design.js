@@ -27,7 +27,7 @@ function colorCell() {
 		$(this).css('background', color);
 	});
 }
-// TODO: stop appearing contextmenu after right click
+
 function uncolorCell() {
 	$('td').contextmenu(function() {
 		$(this).css('background', '#ffffff');
@@ -36,16 +36,19 @@ function uncolorCell() {
 
 function makeGrid(height, width) {
 	tbl.empty(); //delete old grid
+	tbl.append('<p class="tableInfo">Rigth click clear the cell</p>');
 	drawGrid(height, width); //draw new grid
 	colorCell(); //color cell after click
 	uncolorCell(); //uncolor cell after right click
+	tbl.attr('oncontextmenu', 'return false;'); // disable context menu after right click
 }
 
 //get height and width values from inputs after click button
+//create a grid
 button.click(() => {
 	const gridHeightValue = gridHeight.val();
 	const gridWidthValue = gridWidth.val();
-	//set condition which check if size of the grid isn't too big ot too small
+	//set condition which check if size of the grid isn't too big or too small
 	if(gridHeightValue > MAX_HEIGHT || gridWidthValue > MAX_WIDTH) {
 		window.alert("You have exceeded the maximum grid size!\nThe height MAX is: " + MAX_HEIGHT + "\nThe width MAX is: " + MAX_WIDTH);
 	} else if(gridHeightValue == 0 || gridWidthValue == 0) {

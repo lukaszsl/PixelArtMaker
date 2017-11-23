@@ -54,8 +54,16 @@
 	font-size: 2em;
 }
 
+.tableInfo {
+	display: inline;
+	width: 100%;
+	text-align: center;
+	color: #45952E;
+}
+
 .table {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 }
 
