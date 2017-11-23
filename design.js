@@ -22,9 +22,15 @@ function drawGrid(height, width) {
 }
 
 function colorCell() {
-	$('td').on('click', function(evt) {
+	$('td').on('click', function() { //TODO: change it to shorthand click
 		const color = colorPicker.val();
 		$(this).css('background', color);
+	});
+}
+// TODO: stop appearing contextmenu after right click
+function uncolorCell() {
+	$('td').contextmenu(function() {
+		$(this).css('background', '#ffffff');
 	});
 }
 
@@ -32,10 +38,11 @@ function makeGrid(height, width) {
 	tbl.empty(); //delete old grid
 	drawGrid(height, width); //draw new grid
 	colorCell(); //color cell after click
+	uncolorCell(); //uncolor cell after right click
 }
 
 //get height and width values from inputs after click button
-button.click(function(){
+button.click(() => {
 	const gridHeightValue = gridHeight.val();
 	const gridWidthValue = gridWidth.val();
 	//set condition which check if size of the grid isn't too big ot too small
