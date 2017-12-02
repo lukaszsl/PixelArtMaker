@@ -22,7 +22,7 @@ function drawGrid(height, width) {
 }
 
 function colorCell() {
-	$('td').on('click', function() { //TODO: change it to shorthand click
+	$('td').click(function() { //TODO: change it to shorthand click
 		const color = colorPicker.val();
 		$(this).css('background', color);
 	});
