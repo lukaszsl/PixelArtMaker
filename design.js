@@ -42,6 +42,14 @@ function makeGrid(height, width) {
 	uncolorCell(); //uncolor cell after right click
 	tbl.attr('oncontextmenu', 'return false;'); // disable context menu after right click
 }
+//TODO: create drawCanvas function which copy the grid
+//test drawing canvas function
+function drawCanvas(height, width) {
+	var c = document.getElementById('myCanvas');
+	var ctx = c.getContext('2d');
+	var img = document.getElementById('table');
+	ctx.drawImage(img, 10, 10);
+}
 
 //get height and width values from inputs after click button
 //create a grid
@@ -55,5 +63,6 @@ button.click(() => {
 		window.alert("Joker haha! ;-)\nYou can't build the grid when the values are 0!\nSorry but this is just not possible :-)");
 	} else {
 		makeGrid(gridHeightValue, gridWidthValue);
+		drawCanvas(gridHeightValue, gridWidthValue);
 	}
 });

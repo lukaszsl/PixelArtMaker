@@ -82,6 +82,10 @@
 	width: 20px;
 }
 
+.myCanvas {
+	border: 1px solid #000;
+}
+
 .footer {
 	width: 100%;
 	position: fixed;
