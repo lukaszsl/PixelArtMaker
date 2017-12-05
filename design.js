@@ -1,6 +1,7 @@
 const gridHeight = $('#gridHeight');
 const gridWidth = $('#gridWidth');
-const button = $('#btnSubmit');
+const buttonSubmit = $('#btnSubmit');
+const buttonCleanGrid = $('#btnCleanGrid');
 const colorPicker = $('#pickColor');
 const tbl = $('#table');
 const MAX_WIDTH = 60;
@@ -34,18 +35,26 @@ function uncolorCell() {
 	});
 }
 
+function cleanGrid() {
+$('#btnCleanGrid').on('click', function () {
+		$('td').css('background', '#ffffff');
+	});
+}
+
 function makeGrid(height, width) {
 	tbl.empty(); //delete old grid
 	tbl.append('<p class="tableInfo">Rigth click clear the cell</p>');
+	tbl.append('<button id="btnCleanGrid" class="btn">Clean grid</button>');
 	drawGrid(height, width); //draw new grid
 	colorCell(); //color cell after click
 	uncolorCell(); //uncolor cell after right click
-	tbl.attr('oncontextmenu', 'return false;'); // disable context menu after right click
+	$('#grid').attr('oncontextmenu', 'return false;'); // disable context menu after right click
+	cleanGrid(); //clear all grid
 }
 
-//get height and width values from inputs after click button
+//get height and width values from inputs after click buttonSubmit
 //create a grid
-button.click(() => {
+buttonSubmit.click(() => {
 	const gridHeightValue = gridHeight.val();
 	const gridWidthValue = gridWidth.val();
 	//set condition which check if size of the grid isn't too big or too small

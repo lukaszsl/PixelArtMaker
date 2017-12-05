@@ -28,9 +28,10 @@
 	font-size: 0.8em;
 }
 
-.btnSubmit {
+.btn {
 	font-weight: bold;
 	margin: 0 10px;
+	cursor: pointer;
 }
 
 .colorForm {
@@ -63,8 +64,8 @@
 
 .table {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
 
 .grid {
