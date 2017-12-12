@@ -23,7 +23,7 @@ function drawGrid(height, width) {
 }
 
 function colorCell() {
-	$('td').click(function() { //TODO: change it to shorthand click
+	$('td').click(function() {
 		const color = colorPicker.val();
 		$(this).css('background', color);
 	});
@@ -36,8 +36,17 @@ function uncolorCell() {
 }
 
 function cleanGrid() {
-$('#btnCleanGrid').on('click', function () {
+	$('#btnCleanGrid').on('click', function () {
 		$('td').css('background', '#ffffff');
+	});
+}
+
+function continousDrawing() {
+	$('td').on("mousedown mouseenter", function(event) {
+		if(event.which === 1) {
+			const color = colorPicker.val();
+			$(this).css('background', color);
+		}
 	});
 }
 
@@ -50,6 +59,7 @@ function makeGrid(height, width) {
 	uncolorCell(); //uncolor cell after right click
 	$('#grid').attr('oncontextmenu', 'return false;'); // disable context menu after right click
 	cleanGrid(); //clear all grid
+	continousDrawing(); //continuous drawing after click and move mouse 
 }
 
 //get height and width values from inputs after click buttonSubmit
