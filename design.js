@@ -22,30 +22,19 @@ function drawGrid(height, width) {
 	}
 }
 
-function colorCell() {
-	$('td').click(() => {
-		const color = colorPicker.val();
-		$(this).css('background', color);
-	});
-}
-
-function uncolorCell() {
-	$('td').contextmenu(function() {
-		$(this).css('background', '#ffffff');
-	});
-}
-
 function cleanGrid() {
 	$('#btnCleanGrid').click(() => {
 		$('td').css('background', '#ffffff');
 	});
 }
 
-function continousDrawing() {
+function drawingCells() {
 	$('td').on("mousedown mouseenter", function(event) {
 		if(event.which === 1) {
 			const color = colorPicker.val();
 			$(this).css('background', color);
+		} else if(event.which === 3) {
+			$(this).css('background', '#ffffff');
 		}
 	});
 }
@@ -55,11 +44,9 @@ function makeGrid(height, width) {
 	tbl.append('<p class="tableInfo">Rigth click clear the cell</p>');
 	tbl.append('<button id="btnCleanGrid" class="btn">Clean grid</button>');
 	drawGrid(height, width); //draw new grid
-	colorCell(); //color cell after click
-	uncolorCell(); //uncolor cell after right click
 	$('#grid').attr('oncontextmenu', 'return false;'); // disable context menu after right click
 	cleanGrid(); //clear all grid
-	continousDrawing(); //continuous drawing after click and move mouse
+	drawingCells(); //continuous drawing after click and move mouse, use left button to color by current color or right button to color by background color
 }
 
 //get height and width values from inputs after click buttonSubmit
